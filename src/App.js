@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
-function App() {
+const Button = props => {
+
+  const { kind, ...other } = props;
+  const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
+  return <button className={className} {...other} />;
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>This is valid HTML &amp; JSX at the same time.</div>
+      <div>
+        <Button kind="primary" onClick={() => console.log("clicked!")}>
+          Hello World!
+      </Button>
+      </div>
+    </>
   );
-}
-
+};
 export default App;
